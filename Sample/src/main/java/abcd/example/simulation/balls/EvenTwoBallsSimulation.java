@@ -40,5 +40,5 @@ public class EvenTwoBallsSimulation {
         System.out.printf("Win prob --> %f%n", (double)win/n);
         System.out.println("-----------------------------------");
     }
-    
+
 }
