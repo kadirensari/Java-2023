@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class SameDiceSimulation {
 
-    public void play(int n, Random r)
+    public void run(int n, Random r)
     {
         int win = 0;
         for(int i = 0; i < n; i++)

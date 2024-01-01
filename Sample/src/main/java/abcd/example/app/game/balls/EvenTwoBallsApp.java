@@ -1,16 +1,16 @@
-package abcd.example.app.game.dice;
+package abcd.example.app.game.balls;
 
-import abcd.example.simulation.dice.SameDiceSimulation;
+import abcd.example.simulation.balls.EvenTwoBallsSimulation;
 import java.util.Random;
 import java.util.Scanner;
 
-public class SameDiceApp {
+public class EvenTwoBallsApp {
     public static void main(String[] args)
     {
         run();
     }
 
-    static void run()
+    public static void run()
     {
         Scanner kb = new Scanner(System.in);
         Random r = new Random();
@@ -22,12 +22,13 @@ public class SameDiceApp {
             if (n == 0)
                 break;
 
-            SameDiceSimulation s = new SameDiceSimulation();
+            EvenTwoBallsSimulation s = new EvenTwoBallsSimulation();
             s.run(n, r);
         }
 
         System.out.println("-----------------------------------");
         System.out.println("The End");
         System.out.println("-----------------------------------");
+
     }
 }
