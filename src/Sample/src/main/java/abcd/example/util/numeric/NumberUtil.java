@@ -11,7 +11,6 @@ public final class NumberUtil {
         return num == 0 ? 1 : (int)Math.log10(Math.abs(num)) + 1;
     }
 
-
     public static int fibonacciNumber(int n)
     {
         if(n < 3)
@@ -43,6 +42,20 @@ public final class NumberUtil {
                 return false;
         return true;
     }
+
+    public static boolean isPrimeX(long num)
+    {
+        if(isPrime(num)) {
+            while (num > 9) {
+                num = sumDigits(num);
+                if(!isPrime(num))
+                    return false;
+            }
+            return isPrime(num);
+        }
+        return false;
+    }
+
 
     public static int mid(int num1, int num2, int num3)
     {
@@ -76,7 +89,5 @@ public final class NumberUtil {
         }
         return sum;
     }
-
-
 
 }
