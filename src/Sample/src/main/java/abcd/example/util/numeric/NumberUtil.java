@@ -11,6 +11,14 @@ public final class NumberUtil {
         return num == 0 ? 1 : (int)Math.log10(Math.abs(num)) + 1;
     }
 
+    public static long factorial(int num)
+    {
+        long res = 1;
+        for(long i = num; i > 1; i--)
+            res *= i;
+        return res;
+    }
+
     public static int fibonacciNumber(int n)
     {
         if(n < 3)
