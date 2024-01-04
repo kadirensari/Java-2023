@@ -33,6 +33,22 @@ public final class NumberUtil {
         return num3;
     }
 
+    public static int getPrime(int n)
+    {
+        if(n < 1)
+            return -1;
+
+        int count = 0;
+        int res = 2;
+        while(true) {
+            if(isPrime(res))
+                count++;
+            if(count == n)
+                return res;
+            res++;
+        }
+    }
+
     public static boolean isPrime(long num)
     {
         if(num < 2)
