@@ -7,6 +7,21 @@ public final class ArrayUtil {
 
 
 
+    public static int max(int[] a)
+    {
+        int max = a[0];
+        for(int num : a)
+            max = Math.max(max, num);
+        return max;
+    }
+
+    public static int min(int[] a)
+    {
+        int min = a[0];
+        for(int num : a)
+            min = Math.min(min, num);
+        return min;
+    }
 
     public static int[] generateRandomArray(Random r, int size, int min, int bound)
     {
