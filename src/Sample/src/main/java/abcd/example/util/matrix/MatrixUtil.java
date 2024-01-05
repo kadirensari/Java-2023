@@ -1,4 +1,7 @@
 package abcd.example.util.matrix;
 
-public class MatrixUtil {
+public final class MatrixUtil {
+    private MatrixUtil() {}
+
+
 }
