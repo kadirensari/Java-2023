@@ -1,11 +1,23 @@
 package abcd.example.util.array;
 
 import java.util.Random;
+import abcd.example.util.numeric.NumberUtil;
 
 public final class ArrayUtil {
     private ArrayUtil(){}
 
+    public static int[] digits(long num)
+    {
+        num = Math.abs(num);
+        int[] res = new int[NumberUtil.countDigits(num)];
 
+        for(int i = res.length - 1; i >= 0; i--) {
+            res[i] = (int)(num % 10);
+            num /= 10;
+        }
+        return res;
+
+    }
 
     public static int max(int[] a)
     {
@@ -44,5 +56,28 @@ public final class ArrayUtil {
         print(1, a);
     }
 
+    public static void reverse(int[] a)
+    {
+        int left = 0;
+        int right = a.length -1;
+
+        while(left < right)
+            swap(a, left++, right--);
+    }
+
+    public static int sum(int[] a)
+    {
+        int sum = 0;
+        for(int num : a)
+            sum += num;
+        return sum;
+    }
+
+    private static void swap(int[] a, int idx1, int idx2)
+    {
+        int temp = a[idx1];
+        a[idx1] = a[idx2];
+        a[idx2] = temp;
+    }
 
 }
