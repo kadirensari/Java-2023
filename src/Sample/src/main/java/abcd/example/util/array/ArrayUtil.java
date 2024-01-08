@@ -16,8 +16,16 @@ public final class ArrayUtil {
             num /= 10;
         }
         return res;
-
     }
+
+    public static int[] histogramData(int[] a, int n)
+    {
+        int[] res = new int[n + 1];
+        for(int num : a)
+            res[num]++;
+        return res;
+    }
+
 
     public static int max(int[] a)
     {
