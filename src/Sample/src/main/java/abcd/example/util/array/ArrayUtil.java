@@ -18,6 +18,14 @@ public final class ArrayUtil {
         return res;
     }
 
+    public static int[] generateRandomArray(Random r, int size, int min, int bound)
+    {
+        int[] res = new int[size];
+        for(int i = 0; i < res.length; i++)
+            res[i] = r.nextInt(min, bound);
+        return res;
+    }
+
     public static int[] histogramData(int[] a, int n)
     {
         int[] res = new int[n + 1];
@@ -43,12 +51,20 @@ public final class ArrayUtil {
         return min;
     }
 
-    public static int[] generateRandomArray(Random r, int size, int min, int bound)
+
+    public static int partitionByThresholdLess(int[] a, int threshold)
     {
-        int[] res = new int[size];
-        for(int i = 0; i < res.length; i++)
-            res[i] = r.nextInt(min, bound);
-        return res;
+        int idx = 0;
+
+        while(idx < a.length && a[idx] < threshold)
+            idx++;
+
+        for(int i = idx + 1; i < a.length; i++)
+            if(a[i] < threshold) {
+                swap(a, i, idx);
+                idx++;
+            }
+        return idx;
     }
 
     public static void print(int n, int[] a)
