@@ -11,6 +11,19 @@ public final class NumberUtil {
         return num == 0 ? 1 : (int)Math.log10(Math.abs(num)) + 1;
     }
 
+    public static int[] digits(long num, int n)
+    {
+        num = Math.abs(num);
+        int[] res = new int[num == 0 ? 1 : (int)(Math.log10(num) / n) + 1];
+        int powOfTen = (int)Math.pow(10, n);
+
+        for(int i = res.length - 1; i >= 0; i--) {
+            res[i] = (int)(num % powOfTen);
+            num /= powOfTen;
+        }
+        return res;
+    }
+
     public static long factorial(int num)
     {
         long res = 1;

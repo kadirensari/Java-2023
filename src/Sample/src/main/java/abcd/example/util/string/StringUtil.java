@@ -21,4 +21,17 @@ public final class StringUtil {
         return '_';
     }
 
+
+    public static String join(String[] strArr, String sep)
+    {
+        StringBuilder sb = new StringBuilder();
+
+        for(int i = 0; i < strArr.length; i++)
+            sb.append(strArr[i]).append(sep);
+
+        return sb.substring(0, sb.length() - sep.length());
+
+    }
+
+
 }
