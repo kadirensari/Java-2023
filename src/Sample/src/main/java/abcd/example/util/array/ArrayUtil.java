@@ -18,6 +18,19 @@ public final class ArrayUtil {
         return res;
     }
 
+    public static void fillRandomArray(Random r, int[] a, int min, int bound)
+    {
+        for(int i = 0; i < a.length; i++)
+            a[i] = r.nextInt(min, bound);
+    }
+
+    public static void fillRandomArray(Random r, int[][] a, int min, int bound)
+    {
+        for(int i = 0; i < a.length; i++)
+            for(int k = 0; k < a[i].length; k++)
+                a[i][k] = r.nextInt(min, bound);
+    }
+
     public static int[] generateRandomArray(Random r, int size, int min, int bound)
     {
         int[] res = new int[size];
