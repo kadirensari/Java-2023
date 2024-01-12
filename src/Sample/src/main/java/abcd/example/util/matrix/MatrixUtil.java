@@ -19,4 +19,19 @@ public final class MatrixUtil {
         return generateRandomMatrix(r, n, n, min, bound);
     }
 
+    public static boolean isMatrix(int[][] a)
+    {
+        int size = a[0].length;
+        for(int i = 1; i < a.length; i++)
+            if(a[i].length != size)
+                return false;
+
+        return true;
+    }
+
+    public static boolean isSquareMatrix(int[][] a)
+    {
+        return isMatrix(a) && a.length == a[0].length;
+    }
+
 }
