@@ -93,6 +93,17 @@ public final class ArrayUtil {
         print(1, a);
     }
 
+    public static void print(int[][] a)
+    {
+        print(1, a);
+    }
+
+    public static void print(int n, int[][] a)
+    {
+        for(int[] arr : a)
+            print(n, arr);
+    }
+
     public static void reverse(int[] a)
     {
         int left = 0;

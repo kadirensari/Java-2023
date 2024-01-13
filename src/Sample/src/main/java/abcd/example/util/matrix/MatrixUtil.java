@@ -34,4 +34,26 @@ public final class MatrixUtil {
         return isMatrix(a) && a.length == a[0].length;
     }
 
+    public static int sumDiagonal(int[][] a)
+    {
+        int sum = 0;
+        int size = a[0].length;
+
+        for(int i = 0; i < size; i++)
+            sum += a[i][i];
+        return sum;
+    }
+
+    public static int[][] transposed(int[][] a)
+    {
+        int row = a.length;
+        int col = a[0].length;
+
+        int[][] res = new int[col][row];
+        for(int i = 0; i < row; i++)
+            for (int k = 0; k < col; k++)
+                res[k][i] = a[i][k];
+        return res;
+    }
+
 }
