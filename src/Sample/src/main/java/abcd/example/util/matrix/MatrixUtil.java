@@ -7,6 +7,18 @@ import java.util.Random;
 public final class MatrixUtil {
     private MatrixUtil() {}
 
+    public static int[][] add(int[][] a, int[][] b)
+    {
+        int row = a.length;
+        int col = a[0].length;
+        int[][] res = new int[row][col];
+
+        for(int i = 0; i < row; i++)
+            for(int k = 0; k < col; k++)
+                res[i][k] = a[i][k] + b[i][k];
+        return res;
+    }
+
     public static int[][] generateRandomMatrix(Random r, int row, int col, int min, int bound)
     {
         int[][] res = new int[row][col];
