@@ -46,6 +46,18 @@ public final class MatrixUtil {
         return isMatrix(a) && a.length == a[0].length;
     }
 
+    public static int[][] subtract(int[][] a, int[][] b)
+    {
+        int row = a.length;
+        int col = a[0].length;
+        int[][] res = new int[row][col];
+
+        for(int i = 0; i < row; i++)
+            for(int k = 0; k < col; k++)
+                res[i][k] = a[i][k] - b[i][k];
+        return res;
+    }
+
     public static int sumDiagonal(int[][] a)
     {
         int sum = 0;

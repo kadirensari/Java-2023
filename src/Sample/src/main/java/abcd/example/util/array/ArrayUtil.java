@@ -6,6 +6,18 @@ import abcd.example.util.numeric.NumberUtil;
 public final class ArrayUtil {
     private ArrayUtil(){}
 
+    public static void addBy(int[] a, int num)
+    {
+        for(int i = 0; i < a.length; i++)
+            a[i] += num;
+    }
+
+    public static void addBy(int[][] a, int num)
+    {
+        for(int[] arr: a)
+            addBy(arr, num);
+    }
+
     public static int[] digits(long num)
     {
         num = Math.abs(num);
@@ -64,6 +76,17 @@ public final class ArrayUtil {
         return min;
     }
 
+    public static void multiplyBy(int[] a, int num)
+    {
+        for(int i = 0; i < a.length; i++)
+            a[i] *= num;
+    }
+
+    public static void multiplyBy(int[][] a, int num)
+    {
+        for(int[] arr : a)
+            multiplyBy(arr, num);
+    }
 
     public static int partitionByThresholdLess(int[] a, int threshold)
     {
@@ -111,6 +134,16 @@ public final class ArrayUtil {
 
         while(left < right)
             swap(a, left++, right--);
+    }
+
+    public static void subtractBy(int[] a, int num)
+    {
+        addBy(a, -num);
+    }
+
+    public static void subtractBy(int[][] a, int num)
+    {
+        addBy(a, -num);
     }
 
     public static int sum(int[] a)
