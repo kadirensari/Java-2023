@@ -18,6 +18,30 @@ public final class ArrayUtil {
             addBy(arr, num);
     }
 
+    public static void bubbleSort(int[] a, boolean descending)
+    {
+        if(descending)
+            bubbleSortDescending(a);
+        else
+            bubbleSortAscending(a);
+    }
+
+    private static void bubbleSortDescending(int[] a)
+    {
+        for(int i = 0; i < a.length - 1; i++)
+            for(int k = 0; k < a.length - 1 - i; k++)
+                if(a[k + 1] > a[k])
+                    swap(a, k + 1, k);
+    }
+
+    private static void bubbleSortAscending(int[] a)
+    {
+        for(int i = 0; i < a.length - 1; i++)
+            for(int k = 0; k < a.length - 1 - i; k++)
+                if(a[k + 1] < a[k])
+                    swap(a, k + 1, k);
+    }
+
     public static int[] digits(long num)
     {
         num = Math.abs(num);
@@ -134,6 +158,46 @@ public final class ArrayUtil {
 
         while(left < right)
             swap(a, left++, right--);
+    }
+
+    public static void selectionSort(int[] a, boolean descending)
+    {
+        if(descending)
+            selectionSortDescending(a);
+        else
+            selectionSortAscending(a);
+    }
+
+    private static void selectionSortDescending(int[] a)
+    {
+        for(int i = 0; i < a.length - 1; i++) {
+            int max = a[i];
+            int p = i;
+
+            for (int k = i + 1; k < a.length; k++)
+                if(a[k] > max) {
+                    max = a[k];
+                    p = k;
+                }
+            a[p] = a[i];
+            a[i] = max;
+        }
+    }
+
+    private static void selectionSortAscending(int[] a)
+    {
+        for(int i = 0; i < a.length - 1; i++) {
+            int min = a[i];
+            int p = i;
+
+            for (int k = i + 1; k < a.length; k++)
+                if(a[k] < min) {
+                    min = a[k];
+                    p = k;
+                }
+            a[p] = a[i];
+            a[i] = min;
+        }
     }
 
     public static void subtractBy(int[] a, int num)
