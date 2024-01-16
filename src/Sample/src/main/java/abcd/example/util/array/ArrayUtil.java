@@ -83,7 +83,6 @@ public final class ArrayUtil {
         return res;
     }
 
-
     public static int max(int[] a)
     {
         int max = a[0];
@@ -112,6 +111,21 @@ public final class ArrayUtil {
             multiplyBy(arr, num);
     }
 
+    public static int partitionByThresholdGreater(int[] a, int threshold)
+    {
+        int idx = 0;
+
+        while(idx < a.length && a[idx] > threshold)
+            idx++;
+
+        for(int i = idx + 1; i < a.length; i++)
+            if(a[i] > threshold) {
+                swap(a, i, idx);
+                idx++;
+            }
+        return idx;
+    }
+
     public static int partitionByThresholdLess(int[] a, int threshold)
     {
         int idx = 0;
@@ -137,12 +151,44 @@ public final class ArrayUtil {
 
     public static void print(int[] a)
     {
-        print(1, a);
+        print(a, " ", "\n");
     }
 
     public static void print(int[][] a)
     {
         print(1, a);
+    }
+
+    public static void print(long[] a)
+    {
+        for(long num: a)
+            System.out.printf("%d%n", num);
+    }
+
+    public static void print(double[] a)
+    {
+        for(double num : a)
+            System.out.printf("%f%n", num);
+    }
+
+    public static void print(int[] a, String sep, String end)
+    {
+        for(int num: a)
+            System.out.printf("%d%s", num, sep);
+        System.out.print(end);
+    }
+
+    public static void print(String[] str)
+    {
+        print(str, "\n", "");
+    }
+
+    public static void print(String[] str, String sep, String end)
+    {
+        for(String s : str)
+            System.out.printf("%s%s", s, sep);
+
+        System.out.print(end);
     }
 
     public static void print(int n, int[][] a)
@@ -154,7 +200,16 @@ public final class ArrayUtil {
     public static void reverse(int[] a)
     {
         int left = 0;
-        int right = a.length -1;
+        int right = a.length - 1;
+
+        while(left < right)
+            swap(a, left++, right--);
+    }
+
+    public static void reverse(char[] a)
+    {
+        int left = 0;
+        int right = a.length - 1;
 
         while(left < right)
             swap(a, left++, right--);
@@ -221,6 +276,13 @@ public final class ArrayUtil {
     private static void swap(int[] a, int idx1, int idx2)
     {
         int temp = a[idx1];
+        a[idx1] = a[idx2];
+        a[idx2] = temp;
+    }
+
+    private static void swap(char[] a, int idx1, int idx2)
+    {
+        char temp = a[idx1];
         a[idx1] = a[idx2];
         a[idx2] = temp;
     }
