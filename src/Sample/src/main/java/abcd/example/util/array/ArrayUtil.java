@@ -54,6 +54,20 @@ public final class ArrayUtil {
         return res;
     }
 
+    public static void drawHistogram(int[] data, int n, char ch)
+    {
+        int max = max(data);
+
+        for(int num : data) {
+            int count = (int)Math.floor(num * n / (double)max);
+
+            while(count-- > 0)
+                System.out.print(ch);
+
+            System.out.println();
+        }
+    }
+
     public static void fillRandomArray(Random r, int[] a, int min, int bound)
     {
         for(int i = 0; i < a.length; i++)
