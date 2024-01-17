@@ -19,6 +19,11 @@ public final class MatrixUtil {
         return res;
     }
 
+    public static void addBy(int[][] a, int num)
+    {
+        ArrayUtil.addBy(a, num);
+    }
+
     public static int[][] generateRandomMatrix(Random r, int row, int col, int min, int bound)
     {
         int[][] res = new int[row][col];
@@ -46,6 +51,11 @@ public final class MatrixUtil {
         return isMatrix(a) && a.length == a[0].length;
     }
 
+    public static void multiplyBy(int[][] a, int num)
+    {
+        ArrayUtil.multiplyBy(a, num);
+    }
+
     public static int[][] subtract(int[][] a, int[][] b)
     {
         int row = a.length;
@@ -56,6 +66,21 @@ public final class MatrixUtil {
             for(int k = 0; k < col; k++)
                 res[i][k] = a[i][k] - b[i][k];
         return res;
+    }
+
+    public static void subtractBy(int[][] a, int num)
+    {
+        ArrayUtil.subtractBy(a, num);
+    }
+
+    public static int sum(int[][] a)
+    {
+        int sum = 0;
+        for(int[] arr: a)
+            for(int num : arr)
+                sum += num;
+
+        return sum;
     }
 
     public static int sumDiagonal(int[][] a)

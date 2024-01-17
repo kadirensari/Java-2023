@@ -1,6 +1,16 @@
 package abcd.example.util.numeric;
 
 public final class NumberUtil {
+
+    private static final String[] ONES;
+    private static final String[] TENS;
+
+    static {
+        ONES = new String[]{"", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"};
+        TENS = new String[]{"", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"};
+    }
+
+
     private NumberUtil(){}
 
     public static int countDigits(long num)
@@ -24,12 +34,35 @@ public final class NumberUtil {
         return res;
     }
 
+    public static int[] digitsInThrees(long num)
+    {
+        return digits(num, 3);
+    }
+
+    public static int[] digitsInTwos(long num)
+    {
+        return digits(num, 2);
+    }
+
+    public static int[] digits(long num)
+    {
+        return digits(num, 1);
+    }
+
     public static long factorial(int num)
     {
         long res = 1;
         for(long i = num; i > 1; i--)
             res *= i;
         return res;
+    }
+
+    public static long factorialRecursive(int num)
+    {
+        if(num < 2)
+            return 1;
+
+        return num * factorial(num - 1);
     }
 
     public static int fibonacciNumber(int n)
@@ -101,6 +134,36 @@ public final class NumberUtil {
         if(num2 <= num1 && num2 >= num3 || num2 <= num3 && num2 >= num1)
             return num2;
         return num3;
+    }
+
+    public static String numberToText3DigitsTR(long num)
+    {
+        String str = numberToText3DigitsTR((int)num);
+        return str;
+    }
+
+    private static String numberToText3DigitsTR(int num)
+    {
+        return num == 0 ? "sıfır" : (num < 0 ? "eksi " : "") + numberToText3DigitsTR(Math.abs(num / 100), Math.abs(num / 10 % 10), Math.abs(num % 10));
+    }
+
+    private static String numberToText3DigitsTR(int a, int b, int c)
+    {
+        StringBuilder sb = new StringBuilder();
+
+        if(a != 0) {
+            if (a != 1)
+                sb.append(ONES[a]).append(" ");
+            sb.append("yüz ");
+        }
+
+        if(b != 0)
+            sb.append(TENS[b]).append(" ");
+
+        if(c != 0)
+            sb.append(ONES[c]);
+
+        return sb.toString();
     }
 
     public static long reverse(int num)
