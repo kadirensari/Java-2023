@@ -18,6 +18,23 @@ public final class ArrayUtil {
             addBy(arr, num);
     }
 
+    public static int binarySearch(int[] a, int num)
+    {
+        int left = 0;
+        int right = a.length - 1;
+
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (num == a[mid])
+                return mid;
+            if (num < a[mid])
+                right = mid - 1;
+            if(num > a[mid])
+                left = mid + 1;
+        }
+        return -1;
+    }
+
     public static void bubbleSort(int[] a, boolean descending)
     {
         if(descending)
@@ -95,6 +112,14 @@ public final class ArrayUtil {
         for(int num : a)
             res[num]++;
         return res;
+    }
+
+    public static int linearSearch(int[] a, int num)
+    {
+        for(int i = 0; i < a.length; i++)
+            if(a[i] == num)
+                return i;
+        return -1;
     }
 
     public static int max(int[] a)
