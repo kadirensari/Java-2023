@@ -27,6 +27,23 @@ public final class StringUtil {
         return str.isEmpty() ? "" : Character.toUpperCase(str.charAt(0)) + str.substring(1).toLowerCase();
     }
 
+    public static int countString(String str1, String str2)
+    {
+        int count = 0;
+        int idx = 0;
+
+        while((idx = str1.indexOf(str2, idx)) != -1) {
+            count++;
+            idx++;
+        }
+        return count;
+    }
+
+    public static int countStringIgnoreCase(String str1, String str2)
+    {
+        return countString(str1.toLowerCase(), str2.toLowerCase());
+    }
+
     public static char firstNotRepeatingCharacter(String str)
     {
         int[] counts = new int[26];
@@ -72,6 +89,11 @@ public final class StringUtil {
             sb.append(strArr[i]).append(sep);
 
         return sb.substring(0, sb.length() - sep.length());
+    }
+
+    public static String reverse(String str)
+    {
+        return new StringBuilder(str).reverse().toString();
     }
 
 
