@@ -96,5 +96,22 @@ public final class StringUtil {
         return new StringBuilder(str).reverse().toString();
     }
 
+    public static String trimLeading(String str)
+    {
+        int idx = 0;
+        while (idx < str.length() && Character.isWhitespace(str.charAt(idx)))
+            idx++;
+
+        return str.substring(idx);
+    }
+
+    public static String trimTrailing(String str)
+    {
+        int idx = str.length() - 1;
+        while (idx >= 0 && Character.isWhitespace(str.charAt(idx)))
+            idx--;
+        return str.substring(0, idx + 1);
+    }
+
 
 }
