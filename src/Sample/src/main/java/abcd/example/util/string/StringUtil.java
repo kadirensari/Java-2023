@@ -91,6 +91,26 @@ public final class StringUtil {
         return sb.substring(0, sb.length() - sep.length());
     }
 
+    public static String padLeading(String str, int len, char ch)
+    {
+        return len < str.length() ? str : (ch + "").repeat(len - str.length()) + str;
+    }
+
+    public static String padLeading(String str, int len)
+    {
+        return padLeading(str, len, ' ');
+    }
+
+    public static String padTrailing(String str, int len, char ch)
+    {
+        return len < str.length() ? str : str + (ch + "").repeat(len - str.length());
+    }
+
+    public static String padTrailing(String str, int len)
+    {
+        return padTrailing(str, len, ' ');
+    }
+
     public static String reverse(String str)
     {
         return new StringBuilder(str).reverse().toString();
