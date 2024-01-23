@@ -81,6 +81,25 @@ public final class StringUtil {
         return generateRandomText(r, len, LETTERS_TR);
     }
 
+    public static boolean isPangramTR(String str)
+    {
+        return isPangram(str, LETTERS_LOWER_CASE_TR);
+    }
+
+    public static boolean isPangramEN(String str)
+    {
+        return isPangram(str, LETTERS_LOWER_CASE_EN);
+    }
+
+    public static boolean isPangram(String str, String letters)
+    {
+        str = str.toLowerCase();
+        for(int i = 0; i < letters.length(); i++)
+            if(str.indexOf(letters.charAt(i)) == -1)
+                return false;
+        return true;
+    }
+
     public static String join(String[] strArr, String sep)
     {
         StringBuilder sb = new StringBuilder();
