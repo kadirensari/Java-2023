@@ -81,6 +81,33 @@ public final class StringUtil {
         return generateRandomText(r, len, LETTERS_TR);
     }
 
+    public static boolean isPalindrome(String str)
+    {
+        str = str.toLowerCase();
+        int left = 0;
+        int right = str.length() - 1;
+
+        while(left < right) {
+            if(!Character.isLetter(str.charAt(left))) {
+                left++;
+                continue;
+            }
+
+            if(!Character.isLetter(str.charAt(right))) {
+                right--;
+                continue;
+            }
+
+            if(str.charAt(left) != str.charAt(right))
+                return false;
+
+            left++;
+            right--;
+        }
+
+        return true;
+    }
+
     public static boolean isPangramTR(String str)
     {
         return isPangram(str, LETTERS_LOWER_CASE_TR);
