@@ -81,6 +81,29 @@ public final class StringUtil {
         return generateRandomText(r, len, LETTERS_TR);
     }
 
+    public static boolean isAnagram(String str1, String str2)
+    {
+        int len = str1.length();
+        if(str2.length() != len)
+            return false;
+
+        int count1 = 0, count2 = 0;
+
+        for(int i = 0; i < len; i++) {
+            if (str1.indexOf(str2.charAt(i)) == -1)
+                return false;
+            count1++;
+        }
+
+        for(int i = 0; i < len; i++) {
+            if (str2.indexOf(str1.charAt(i)) == -1)
+                return false;
+            count2++;
+        }
+
+        return count1 == count2;
+    }
+
     public static boolean isPalindrome(String str)
     {
         str = str.toLowerCase();
@@ -177,6 +200,26 @@ public final class StringUtil {
         while (idx >= 0 && Character.isWhitespace(str.charAt(idx)))
             idx--;
         return str.substring(0, idx + 1);
+    }
+
+    public static String wrapWith(String str, char ch)
+    {
+        return wrapWith(str, ch, ch);
+    }
+
+    public static String wrapWith(String str, String strWrap)
+    {
+        return wrapWith(str, strWrap, strWrap);
+    }
+
+    public static String wrapWith(String str, char prefix, char suffix)
+    {
+        return wrapWith(str, String.valueOf(prefix), String.valueOf(suffix));
+    }
+
+    public static String wrapWith(String str, String prefix, String suffix)
+    {
+        return String.format("%s%s%s", prefix, str, suffix);
     }
 
 
