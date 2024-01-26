@@ -185,6 +185,19 @@ public final class StringUtil {
         return new StringBuilder(str).reverse().toString();
     }
 
+    public static String squeeze(String str1, String str2)
+    {
+        StringBuilder sb = new StringBuilder();
+
+        for(int i = 0; i < str1.length(); i++) {
+            char ch = str1.charAt(i);
+
+            if(!str2.contains(String.valueOf(ch)))
+                sb.append(ch);
+        }
+        return sb.toString();
+    }
+
     public static String trimLeading(String str)
     {
         int idx = 0;
