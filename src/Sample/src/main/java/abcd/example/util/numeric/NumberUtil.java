@@ -13,6 +13,12 @@ public final class NumberUtil {
 
     private NumberUtil(){}
 
+
+    public static boolean areFriends(int num1, int num2)
+    {
+        return sumFactors(num1) == num2 && sumFactors(num2) == num1;
+    }
+
     public static int countDigits(long num)
     {
         if(num == Long.MIN_VALUE) // Math.abs won't return the abs value of Long.MIN_VALUE because of constraints.
@@ -189,5 +195,18 @@ public final class NumberUtil {
         }
         return sum;
     }
+
+    public static int sumFactors(long num)
+    {
+        int res = 1;
+        long sqrt = (long)Math.sqrt(num);
+
+        for(long i = 2; i <= sqrt; i++)
+            if(num % i == 0)
+                res += (int)((i == num / i) ? i : (i + num / i));
+
+        return res;
+    }
+
 
 }
