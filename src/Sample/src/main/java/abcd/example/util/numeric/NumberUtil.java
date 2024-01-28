@@ -85,6 +85,18 @@ public final class NumberUtil {
         return num3;
     }
 
+    public static int getDigitsPowSum(int num)
+    {
+        int digitCount = countDigits(num);
+        int sum = 0;
+
+        while(num != 0) {
+            sum += (int)Math.pow(num % 10, digitCount);
+            num /= 10;
+        }
+        return sum;
+    }
+
     public static int getPrime(int n)
     {
         if(n < 1)
@@ -99,6 +111,11 @@ public final class NumberUtil {
                 return res;
             res++;
         }
+    }
+
+    public static boolean isArmstrong(int num)
+    {
+        return num >= 0 && getDigitsPowSum(num) == num;
     }
 
     public static boolean isPrime(long num)
