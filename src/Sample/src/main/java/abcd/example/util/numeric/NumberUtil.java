@@ -113,6 +113,21 @@ public final class NumberUtil {
         }
     }
 
+    public static int indexOfPrime(long num)
+    {
+        int idx = 1;
+        long numTemp = 2;
+
+        while(true) {
+            if (numTemp == num)
+                return idx;
+
+            if(isPrime(numTemp))
+                idx++;
+            numTemp++;
+        }
+    }
+
     public static boolean isArmstrong(int num)
     {
         return num >= 0 && getDigitsPowSum(num) == num;
