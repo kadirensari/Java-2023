@@ -133,6 +133,11 @@ public final class NumberUtil {
         return num >= 0 && getDigitsPowSum(num) == num;
     }
 
+    public static boolean isDecimalHarshad(int num)
+    {
+        return num >= 0 && num % sumDigits(num) == 0;
+    }
+
     public static boolean isPrime(long num)
     {
         if(num < 2)
