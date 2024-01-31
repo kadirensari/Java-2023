@@ -12,10 +12,11 @@ import java.util.List;
 
 @Ignore("Tested by Kadir")
 @RunWith(Parameterized.class)
-public class NumberUtilIsArmstrongTest {
+public class NumberUtilIsFactorianTest {
     public IntBooleanDataInfo dataInfo;
 
-    public NumberUtilIsArmstrongTest(IntBooleanDataInfo dataInfo)
+
+    public NumberUtilIsFactorianTest(IntBooleanDataInfo dataInfo)
     {
         this.dataInfo = dataInfo;
     }
@@ -24,27 +25,21 @@ public class NumberUtilIsArmstrongTest {
     public static Collection<IntBooleanDataInfo> createData()
     {
         return List.of(
+                new IntBooleanDataInfo(0, false),
                 new IntBooleanDataInfo(1, true),
                 new IntBooleanDataInfo(2, true),
-                new IntBooleanDataInfo(3, true),
-                new IntBooleanDataInfo(4, true),
-                new IntBooleanDataInfo(5, true),
-                new IntBooleanDataInfo(6, true),
-                new IntBooleanDataInfo(7, true),
-                new IntBooleanDataInfo(8, true),
-                new IntBooleanDataInfo(9, true),
+                new IntBooleanDataInfo(3, false),
                 new IntBooleanDataInfo(10, false),
-                new IntBooleanDataInfo(153, true),
-                new IntBooleanDataInfo(1634, true),
-                new IntBooleanDataInfo(154, false),
-                new IntBooleanDataInfo(1632, false)
+                new IntBooleanDataInfo(101, false),
+                new IntBooleanDataInfo(145, true),
+                new IntBooleanDataInfo(40585, true)
         );
     }
 
     @Test
     public void test()
     {
-        Assert.assertEquals(dataInfo.expected, NumberUtil.isArmstrong(dataInfo.input));
+        Assert.assertEquals(dataInfo.expected, NumberUtil.isFactorian(dataInfo.input));
     }
 
 }

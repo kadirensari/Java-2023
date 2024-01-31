@@ -85,6 +85,17 @@ public final class NumberUtil {
         return num3;
     }
 
+    private static int getDigitsFactorialSum(int num)
+    {
+        int res = 0;
+        while(num != 0) {
+            res += factorial(num % 10);
+            num /= 10;
+        }
+
+        return res;
+    }
+
     public static int getDigitsPowSum(int num)
     {
         int digitCount = countDigits(num);
@@ -113,6 +124,23 @@ public final class NumberUtil {
         }
     }
 
+    public static int hardyRamanujanCount(int n)
+    {
+        int count = 0;
+
+        MAIN_LOOP:
+        for(int a = 1; a * a * a < n; a++)
+            for(int b = a + 1; a * a * a + b * b * b <= n; b++)
+                if(a * a * a + b * b * b == n) {
+                    count++;
+
+                    if(count == 2)
+                        break MAIN_LOOP;
+                    a++;
+                }
+        return count;
+    }
+
     public static int indexOfPrime(long num)
     {
         int idx = 1;
@@ -136,6 +164,21 @@ public final class NumberUtil {
     public static boolean isDecimalHarshad(int num)
     {
         return num >= 0 && num % sumDigits(num) == 0;
+    }
+
+    public static boolean isFactorian(int num)
+    {
+        return  num > 0 && getDigitsFactorialSum(num) == num;
+    }
+
+    public static boolean isHardyRamanujan(int num)
+    {
+        return num > 0 && hardyRamanujanCount(num) == 2;
+    }
+
+    public static boolean isPerfect(int num)
+    {
+        return sumFactors(num) == num;
     }
 
     public static boolean isPrime(long num)
@@ -169,6 +212,10 @@ public final class NumberUtil {
         return false;
     }
 
+    public static boolean isSuperPrime(long num)
+    {
+        return isPrime(num) && isPrime(indexOfPrime(num));
+    }
 
     public static int mid(int num1, int num2, int num3)
     {

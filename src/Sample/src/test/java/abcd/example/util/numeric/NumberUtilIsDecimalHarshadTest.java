@@ -1,5 +1,6 @@
 package abcd.example.util.numeric;
 
+import abcd.example.util.numeric.data.IntBooleanDataInfo;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -12,46 +13,35 @@ import java.util.List;
 @Ignore("Tested by Kadir")
 @RunWith(Parameterized.class)
 public class NumberUtilIsDecimalHarshadTest {
-    public DataInfo dataInfo;
+    public IntBooleanDataInfo dataInfo;
 
-    static class DataInfo {
-        public int input;
-        public boolean expected;
-
-        public DataInfo(int input, boolean expected)
-        {
-            this.input = input;
-            this.expected = expected;
-        }
-    }
-
-    public NumberUtilIsDecimalHarshadTest(DataInfo dataInfo)
+    public NumberUtilIsDecimalHarshadTest(IntBooleanDataInfo dataInfo)
     {
         this.dataInfo = dataInfo;
     }
 
     @Parameterized.Parameters
-    public static Collection<DataInfo> createData()
+    public static Collection<IntBooleanDataInfo> createData()
     {
         return List.of(
-                new DataInfo(1, true),
-                new DataInfo(2, true),
-                new DataInfo(3, true),
-                new DataInfo(4, true),
-                new DataInfo(5, true),
-                new DataInfo(6, true),
-                new DataInfo(7, true),
-                new DataInfo(8, true),
-                new DataInfo(9, true),
-                new DataInfo(10, true),
-                new DataInfo(11, false),
-                new DataInfo(12, true),
-                new DataInfo(13, false),
-                new DataInfo(14, false),
-                new DataInfo(15, false),
-                new DataInfo(16, false),
-                new DataInfo(17, false),
-                new DataInfo(18, true)
+                new IntBooleanDataInfo(1, true),
+                new IntBooleanDataInfo(2, true),
+                new IntBooleanDataInfo(3, true),
+                new IntBooleanDataInfo(4, true),
+                new IntBooleanDataInfo(5, true),
+                new IntBooleanDataInfo(6, true),
+                new IntBooleanDataInfo(7, true),
+                new IntBooleanDataInfo(8, true),
+                new IntBooleanDataInfo(9, true),
+                new IntBooleanDataInfo(10, true),
+                new IntBooleanDataInfo(11, false),
+                new IntBooleanDataInfo(12, true),
+                new IntBooleanDataInfo(13, false),
+                new IntBooleanDataInfo(14, false),
+                new IntBooleanDataInfo(15, false),
+                new IntBooleanDataInfo(16, false),
+                new IntBooleanDataInfo(17, false),
+                new IntBooleanDataInfo(18, true)
         );
     }
 
