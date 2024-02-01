@@ -19,6 +19,16 @@ public final class NumberUtil {
         return sumFactors(num1) == num2 && sumFactors(num2) == num1;
     }
 
+    public static int calculateDigitalRoot(int num)
+    {
+        int res = sumDigits(num);
+
+        while(res > 9)
+            res = sumDigits(res);
+
+        return res;
+    }
+
     public static int countDigits(long num)
     {
         if(num == Long.MIN_VALUE) // Math.abs won't return the abs value of Long.MIN_VALUE because of constraints.
