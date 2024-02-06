@@ -48,17 +48,17 @@ public class Complex {
     {
         return add(real, 0, z.real, z.imag);
     }
-//
-//    public static Complex subtract(double a1, double b1, double a2, double b2)
-//    {
-//        return add(a1, b1, -a2, -b2);
-//    }
-//
-//    public static Complex subtract(double real, Complex z)
-//    {
-//        return subtract(real, 0, z.real, z.imag);
-//    }
-//
+
+    public static Complex subtract(double a1, double b1, double a2, double b2)
+    {
+        return add(a1, b1, -a2, -b2);
+    }
+
+    public static Complex subtract(double real, Complex z)
+    {
+        return subtract(real, 0, z.real, z.imag);
+    }
+
 //    public static Complex multiply(double a1, double b1, double a2, double b2)
 //    {
 //        return new Complex(a1 * a2 - b1 * b2, a1 * b2 + a2 * b1);
@@ -88,17 +88,17 @@ public class Complex {
     {
         return add(this.real, this.imag, other.real, other.imag);
     }
-//
-//    public Complex subtract(double real)
-//    {
-//        return subtract(this.real, this.imag, real, 0);
-//    }
-//
-//    public Complex subtract(Complex other)
-//    {
-//        return subtract(this.real, this.imag, other.real, other.imag);
-//    }
-//
+
+    public Complex subtract(double real)
+    {
+        return subtract(this.real, this.imag, real, 0);
+    }
+
+    public Complex subtract(Complex other)
+    {
+        return subtract(this.real, this.imag, other.real, other.imag);
+    }
+
 //    public Complex multiply(double real)
 //    {
 //        return multiply(this.real, this.imag, real, 0);
@@ -109,25 +109,25 @@ public class Complex {
 //        return multiply(this.real, this.imag, other.real, other.imag);
 //    }
 //
-//    public void inc()
-//    {
-//        inc(1);
-//    }
-//
-//    public void inc(double real)
-//    {
-//        this.real += real;
-//    }
-//
-//    public void dec()
-//    {
-//        dec(1);
-//    }
-//
-//    public void dec(double real)
-//    {
-//        inc(-real);
-//    }
+    public void inc()
+    {
+        inc(1);
+    }
+
+    public void inc(double real)
+    {
+        this.real += real;
+    }
+
+    public void dec()
+    {
+        dec(1);
+    }
+
+    public void dec(double real)
+    {
+        inc(-real);
+    }
 
     public boolean equals(Object other)
     {

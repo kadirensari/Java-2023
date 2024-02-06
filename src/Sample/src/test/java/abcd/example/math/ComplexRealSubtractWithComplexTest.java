@@ -12,10 +12,10 @@ import java.util.List;
 
 @Ignore("Tested by Kadir")
 @RunWith(Parameterized.class)
-public class ComplexRealAddWithComplexTest {
+public class ComplexRealSubtractWithComplexTest {
     public DoubleComplexComplexDataInfo dataInfo;
 
-    public ComplexRealAddWithComplexTest(DoubleComplexComplexDataInfo dataInfo)
+    public ComplexRealSubtractWithComplexTest(DoubleComplexComplexDataInfo dataInfo)
     {
         this.dataInfo = dataInfo;
     }
@@ -24,15 +24,14 @@ public class ComplexRealAddWithComplexTest {
     public static Collection<DoubleComplexComplexDataInfo> createData()
     {
         return List.of(
-                new DoubleComplexComplexDataInfo(5, new Complex(3, -5), new Complex(8, -5)),
-                new DoubleComplexComplexDataInfo(-5, new Complex(3, -5), new Complex(-2, -5))
+                new DoubleComplexComplexDataInfo(5, new Complex(3, -5), new Complex(2, 5)),
+                new DoubleComplexComplexDataInfo(-5, new Complex(3, -5), new Complex(-8, 5))
         );
     }
 
     @Test
     public void test()
     {
-        Assert.assertEquals(dataInfo.expected, Complex.add(dataInfo.input1, dataInfo.input2));
+        Assert.assertEquals(dataInfo.expected, Complex.subtract(dataInfo.input1, dataInfo.input2));
     }
-
 }
