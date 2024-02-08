@@ -59,20 +59,20 @@ public class Complex {
         return subtract(real, 0, z.real, z.imag);
     }
 
-//    public static Complex multiply(double a1, double b1, double a2, double b2)
-//    {
-//        return new Complex(a1 * a2 - b1 * b2, a1 * b2 + a2 * b1);
-//    }
-//
-//    public static Complex multiply(double real, Complex z)
-//    {
-//        return multiply(real, 0, z.real, z.imag);
-//    }
-//
-//    public double getLength()
-//    {
-//        return Math.sqrt(real * real + imag * imag);
-//    }
+    public static Complex multiply(double a1, double b1, double a2, double b2)
+    {
+        return new Complex(a1 * a2 - b1 * b2, a1 * b2 + a2 * b1);
+    }
+
+    public static Complex multiply(double real, Complex z)
+    {
+        return multiply(real, 0, z.real, z.imag);
+    }
+
+    public double getLength()
+    {
+        return Math.sqrt(real * real + imag * imag);
+    }
 
     public Complex getConjugate()
     {
@@ -99,16 +99,16 @@ public class Complex {
         return subtract(this.real, this.imag, other.real, other.imag);
     }
 
-//    public Complex multiply(double real)
-//    {
-//        return multiply(this.real, this.imag, real, 0);
-//    }
-//
-//    public Complex multiply(Complex other)
-//    {
-//        return multiply(this.real, this.imag, other.real, other.imag);
-//    }
-//
+    public Complex multiply(double real)
+    {
+        return multiply(this.real, this.imag, real, 0);
+    }
+
+    public Complex multiply(Complex other)
+    {
+        return multiply(this.real, this.imag, other.real, other.imag);
+    }
+
     public void inc()
     {
         inc(1);
